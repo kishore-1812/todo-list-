@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <link rel="stylesheet" href="todo_css.css">
+</head>
+    <body>
+         <!-- TO DO LIST array -->
+        <script type="text/javascript">
+            let listItem = ['Get up early', 'Get ready'];
+        </script>
+        <script type="text/javascript">
+            function newElement() {
+                let tempItem = document.getElementById('myInput').value;
+                listItem.push(tempItem);
+                displayList(tempItem);
+                document.getElementById('myInput').value = '';
+
+            }
+            function removeAll() {
+                for(let i=0;i < listItem.length; i++){
+                    let temp = document.getElementById('list');
+                    temp.remove();
+                }
+                listItem = [];
+            }
+        </script>
+        
+        <div class="header container">
+            <h2 style="margin:5px">To Do List</h2><br><br>
+            <input type="text" id="myInput" placeholder="Task name..."><br><br>
+            <span onclick="newElement()" class="addBtn">Add</span> <br><br>
+            <button type="button" class='delete-button' id="clear-list" onclick="removeAll()">Clear Item</button><br>
+            
+            <div class="todo-items" id="display">
+
+                <ul id="myUl">
+                    <script type="text/javascript">
+                        listItem.forEach(displayList);
+                        
+                        function displayList (item) {
+                            document.getElementById('display').innerHTML += "<li class='item' id='list'>" + item + "</li>"
+                        }
+                    </script>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Adding stuff to the list -->
+        
+        
+
+        
+
+            
+</body>
+</html>
